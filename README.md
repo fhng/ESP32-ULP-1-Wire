@@ -17,11 +17,17 @@ combine these two byte into temperature data
 
 Resources:
 1)Used espresssif/esp-idf/system/ulp as a starting template.
+
 2)All the ds18b20 code is a direct port from feelfreelinux/ds18b20 https://github.com/feelfreelinux/ds18b20
+
 3)Also, stack.S and subrotines call are from tomtor/up-i2c https://github.com/tomtor/ulp-i2c
+
 Tomtor's ulp-i2c code is very helpful for understsanding ULP.
 
+
 Note:
+
+
 *the comments in the code are meant for myself at the time of writing them. If they are confusing to you feel free to ask question.
 
 
