@@ -28,7 +28,7 @@
 .macro GPIO_low
 	WRITE_RTC_REG(RTC_GPIO_OUT_W1TC_REG, RTC_GPIO_OUT_DATA_W1TC_S + 9, 1, 1)
 .endm
-/*
+
 
 	/* Define variables, which go into .bss section (zero-initialized data) */
 	.bss
