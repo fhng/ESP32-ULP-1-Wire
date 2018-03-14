@@ -214,7 +214,8 @@ get_temp:
 	/* Byte 7 : Reserved(10h) */
 	/* Byte 8 : CRC */
 	/* Temperature = ((Byte 1) << 8 + Byte 0) * 0.0625 */
-	/* Byte 2 - Byte 7: 48 bit device serial number */
+	/* Byte 0 - Byte 1 : DS18B20's 1-Wire family code (temperature if 0x44 was sent) */
+	/* Byte 2 - Byte 7 : 48 bit device serial number */
 	
 	move r2, 0xCC
 	psr
