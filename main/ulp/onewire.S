@@ -203,6 +203,18 @@ get_temp:
 	jump rst_pulse
 
 	/* sent 0xCC and 0xBE command */
+	/* After 0xBE command: We should get 9 Bytes of data (We are only looking at the first 2 Bytes now.) */
+	/* Byte 0 : Temperature LSB */
+	/* Byte 1 : Temperature MSB */
+	/* Byte 2 : Th Register or User Byte 1 */
+	/* Byte 3 : Tl Register or User Byte 2 */
+	/* Byte 4 : Configuration Register */
+	/* Byte 5 : Reserved(FFh) */
+	/* Byte 6 : Reverved */
+	/* Byte 7 : Reserved(10h) */
+	/* Byte 8 : CRC */
+	/* Temperature = ((Byte 1) << 8 + Byte 0) * 0.0625 */
+	
 	move r2, 0xCC
 	psr
 	jump send_byte
