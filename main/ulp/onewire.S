@@ -195,6 +195,7 @@ get_temp:
 	jump send_byte
 
 	/* delay 750ms, looping 750x in delay_ms */
+	/* 0x44 convert command: convertion is slow, 750 milliseconds */
 	psr
 	jump delay_ms
 	
