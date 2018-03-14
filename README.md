@@ -1,21 +1,34 @@
 # ESP32 ULP 1-Wire example
 Using GIPO 32 (RTC_GOIO 9) for 1-wire. A pull-up 1.5kohm on 3.3v between GPIO 32 and a magnetic Temperature sensor DS18B20 waterproof 1m Cable at the end.
 
+
 DS18B20: data line to GPIO 32, Ground to Ground, Power to Power.
+
 
 Testing, playing with ESP32 ULP for learning purpose. Below are the resources I used to code this. app_main() init ULP and set it on a timer and it goes to sleep. ULP gets temperature from ds18b20, wakes up app_main() then halt. appp_main() prints the output and go to sleep. Timer wakes ULP and the cycle repeats again. 
 
+
 In general ULP do this:
+
 Send command 0xCC // Send skip ROM command; ignore device IDs
+
 Send command 0x44 // start conversion command which stores it in Scratch Pad
+
 reset pulse
+
 Send command 0xCC // Send skip ROM command
+
 Send command 0xBE // Send Read Scratch Pad and return it
+
 read one byte from bus
+
 read one byte from bus
+
 combine these two byte into temperature data
 
+
 Resources:
+
 1)Used espresssif/esp-idf/system/ulp as a starting template.
 
 2)All the ds18b20 code is a direct port from feelfreelinux/ds18b20 https://github.com/feelfreelinux/ds18b20
