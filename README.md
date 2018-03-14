@@ -12,7 +12,7 @@ In general ULP do this:
 
 Send command 0xCC // Send skip ROM command; ignore device IDs
 
-Send command 0x44 // start conversion command which stores it in Scratch Pad
+Send command 0x44 // start conversion command - produce 2 bytes and this process is slow, 750 milliseconds.
 
 reset pulse
 
