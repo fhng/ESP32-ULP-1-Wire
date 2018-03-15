@@ -1,20 +1,22 @@
 # ESP32 ULP 1-Wire example
-Using GIPO 32 (RTC_GOIO 9) for 1-wire. A pull-up 1.5kohm on 3.3v between GPIO 32 and a magnetic Temperature sensor DS18B20 waterproof 1m Cable at the end.
+Using GIPO 32 (RTC_GOIO 9) for 1-wire. A pull-up 1.5kohm between 3.3v and GPIO 32 and a magnetic Temperature sensor DS18B20 waterproof 1m Cable at the end of GPIO.
 
 
 DS18B20: data line to GPIO 32, Ground to Ground, Power to Power.
 
 
-Testing, playing with ESP32 ULP for learning purpose. Below are the resources I used to code this. app_main() init ULP and set it on a timer and it goes to sleep. ULP gets temperature from ds18b20, wakes up app_main() then halt. appp_main() prints the output and go to sleep. Timer wakes ULP and the cycle repeats again. 
+Testing, playing with ESP32 ULP for learning purpose. Below are the resources I used to code this. app_main() init ULP and sets it on a timer and it goes to sleep. ULP gets temperature from ds18b20, wakes up app_main() then halt. app_main() prints the output and go to sleep. Timer wakes ULP and the cycle repeats again. 
 
 
-In general ULP do this:
+In general, codes in ULP do this:
 
 Send command 0xCC // Send skip ROM command; ignore device IDs
 
 Send command 0x44 // start conversion command - produce 2 bytes and this process is slow, 750 milliseconds.
 
 reset pulse
+
+wait 750 milliseconds
 
 Send command 0xCC // Send skip ROM command
 
