@@ -203,7 +203,7 @@ get_temp:
 	jump rst_pulse
 
 	/* sent 0xCC and 0xBE command */
-	/* After 0xBE command: We should get 9 Bytes of data (We are only looking at the first 2 Bytes now.) */
+	/* DS18B20 Memory Map */
 	/* Byte 0 : Temperature LSB */
 	/* Byte 1 : Temperature MSB */
 	/* Byte 2 : Th Register or User Byte 1 */
