@@ -114,56 +114,57 @@ exit_wake:
         /* Stop the wakeup timer so it does not restart ULP */
         /* WRITE_RTC_FIELD(RTC_CNTL_STATE0_REG, RTC_CNTL_ULP_CP_SLP_TIMER_EN, 0) */
         halt
-/* Debugging send_byte and read_byte by putting the read/send output into a var. 
-read_bit_test:
-	push r2
 
-	move r0, send_counter
-	ld r0, r0, 0
-	move r1, test_input
-	rsh r2, r1, r0
-	and r2, r2, 0x01
-	add r0, r0, 1
-	move r1, send_counter
-	st r0, r1, 0
-	move r0, r2
-
-	pop r2
-	
-	ret
-*/
-	
+/* Use send_rom_id for multiple devices enviorment */
+/* Use read_from_single_device to get a single device ROM-ID on the bus. */
+/* R2: rom-id location, set your own .global var to store your ROM-ID.*/
 /*
-send_bit_test:
-        move r0, send_counter
-        ld r0, r0, 0
-        lsh r1, r2, r0
+send_rom_id:
+
+        move r0, 0
+send_rom_id_loop:
+        move r1, r2
+        add r1, r1, r0
+        push r2
+        ld r2, r1, 0
         push r0
-        move r0, send_output_test
-        ld r0, r0, 0
-        or r1, r1, r0
-        move r0, send_output_test
-        st r1, r0, 0
+
+        psr
+        jump send_byte
+        
         pop r0
+        pop r2
         add r0, r0, 1
-        move r1, send_counter
-        st r0, r1, 0
-	ret
+        jumpr send_rom_id_loop, 8, lt
+
+        ret
 */
 
-/* For debugging only 
-read_button:
-        GPIO_read
-        sub r0, r0, 0
-        jump input_low, eq
+/* Find the 64 bit ROM code when only a single device is on the bus. Can't do  multiple devices search. */
+/* Working, uncomment to use, ROM ID is store in a .global romID_8Bytes var.
+read_rom_single_device:
+        psr
+        jump rst_pulse
 
-input_high:
-	ret
-input_low:
-        move r1, temperatureF
-        st r0, r1, 0
-	ret
+        move r2, 0x33
+        psr
+        jump send_byte
+
+        move r0, 0
+read_rom_loop:
+        push r0 // remember to push r0 before call routine
+        psr
+        jump read_byte
+        move r1, romID_8Bytes
+        pop r0
+        add r1, r1, r0
+        st r2, r1, 0
+        add r0, r0, 1
+        jumpr read_rom_loop, 8, lt
+
+        ret
 */
+
 
 rst_pulse:
 	/* set OUTPUT_W1TS for output */
@@ -182,6 +183,7 @@ rst_pulse:
 	ret
 	
 /* R0 - (16bit) temperature is store in R0 on return. */
+/* This work with one device on the bus, for multiple devicse you should send ROM-ID after rst_pulse */
 get_temp:
 	psr
 	jump rst_pulse
@@ -193,6 +195,7 @@ get_temp:
 	move r2, 0x44
 	psr
 	jump send_byte
+	
 
 	/* delay 750ms, looping 750x in delay_ms */
 	/* 0x44 convert command: convertion is slow, 750 milliseconds */
@@ -203,20 +206,6 @@ get_temp:
 	jump rst_pulse
 
 	/* sent 0xCC and 0xBE command */
-	/* DS18B20 Memory Map */
-	/* Byte 0 : Temperature LSB */
-	/* Byte 1 : Temperature MSB */
-	/* Byte 2 : Th Register or User Byte 1 */
-	/* Byte 3 : Tl Register or User Byte 2 */
-	/* Byte 4 : Configuration Register */
-	/* Byte 5 : Reserved(FFh) */
-	/* Byte 6 : Reverved */
-	/* Byte 7 : Reserved(10h) */
-	/* Byte 8 : CRC */
-	/* Temperature = ((Byte 1) << 8 + Byte 0) * 0.0625 */
-	/* Byte 0 - Byte 1 : DS18B20's 1-Wire family code (temperature if 0x44 was sent) */
-	/* Byte 2 - Byte 7 : 48 bit device serial number */
-	
 	move r2, 0xCC
 	psr
 	jump send_byte
@@ -282,10 +271,7 @@ read_bit:
 	wait(120) /* 15 us */
 	GPIO_H
 	GPIO_read 
-/*
-	psr 
-	jump read_bit_test
-*/
+	
 	ret
 
 /* R0 is used to counter, R1 is used by psr, R3 is used by stack */
@@ -318,29 +304,15 @@ send_bit:
 	GPIO_L
 	GPIO_low
 	wait(40) /* 5us */
-	/*
-	sub r2,r2, 1
-	jump send_bit_high, eq
-	*/
 	sub r2, r2, 0
 	jump send_bit_low, eq
 send_bit_high:
 	GPIO_high
 	
-/*	debugging call - see if the right bits are in order
-	move r2, 1
-	psr
-	jump send_bit_test
-*/
 send_bit_low:
 	wait(640) /* 80us */
 	GPIO_high
 
-/*	debugging call - see if the right bits are in order
-	move r2, 0
-	psr
-	jump send_bit_test
-*/
 	ret
 
 delay_ms:
