@@ -20,7 +20,7 @@
 	WRITE_RTC_REG(RTC_GPIO_ENABLE_W1TS_REG, RTC_GPIO_ENABLE_W1TS_S + 9, 1, 1)
 .endm
 
-/* These two marco for set bus high and set low when GPIO_L called, enable W1TS. */
+/* These two marco for set bus high and set low when GPIO_L is called, enable W1TS. */
 .macro GPIO_high
 	WRITE_RTC_REG(RTC_GPIO_OUT_W1TS_REG, RTC_GPIO_OUT_DATA_W1TS_S + 9, 1, 1)
 .endm
