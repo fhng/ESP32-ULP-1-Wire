@@ -4,9 +4,8 @@
 
 // R3, you shouldn't touch it in your code
 // R1, Don't use it before call a subsoutine, it will get overridden
-// R0 and R2 is left for usage.
-// Or just PUSH R0-R2 and POP them out.
-
+// R0 and R2 are free.
+// Or just PUSH R0-R2 then POP them out when done.
 
 .macro push rx
 	st \rx,r3,0
@@ -19,7 +18,7 @@
 .endm
 
 // Prepare subroutine jump, uses scratch register sr
-// .(DOT) points to your current position of your code, NOT a program counter(register)
+// .(DOT) is your current location counter of your code, NOT a program counter(register)
 
 .macro psr sr=r1 pos=.
 	.set _next2,(\pos+16)
