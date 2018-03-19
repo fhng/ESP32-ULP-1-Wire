@@ -31,7 +31,9 @@ combine these two byte into temperature data
 
 
 **************************************************************************************************************************
-**************************************************Update March 19 2018****************************************************
+
+--Update March 19 2018--
+
 Added read_rom_single_device subroutine
 
 Added send_rom_id subroutine
@@ -43,6 +45,7 @@ I am using 4 to 6 DS18B20 devices. So I am manually reading each device with rea
 *Probabaly will add search for ROM-IDs function in C, not in ULP. 
 
 These subroutines are all commented out. Uncomment to use.
+
 **************************************************************************************************************************
 
 
