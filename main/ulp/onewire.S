@@ -50,17 +50,8 @@ temperatureF:
 	.global first_run
 first_run:
 	.long 0
-/*
-	.set test_input, 0b00110011
 
-	.global send_counter
-send_counter:
-	.long 0
-	
-	.global send_output_test
-send_output_test:
-	.long 0
-*/
+
 	/* Code goes into .text section */
 	.text
 	.global entry
