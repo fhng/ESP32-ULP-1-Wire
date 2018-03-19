@@ -29,6 +29,12 @@ read one byte from bus
 combine these two byte into temperature data
 
 
+*Update March 19 2018
+Added read_rom_single_device subroutine
+Added send_rom_id subroutine
+I am using 4 to 6 DS18B20 devices. So I am manually reading each device with read_rom_single_device and copy down those ROM IDs and init them in my appMain() before calling ULP. ULP can use this ROM-IDs for multiple devices environment.   
+*RTC_SLOW_MEMORY is 8kb in size, thats the reason I don't do a search for ROM-IDs for mulitiple devices. ULP app is getting too big to fit it in. Beside I want to have as much memory as possible to store the temperature data to save battery life. 
+*Probabaly will add search for ROM-IDs function in C, not in ULP. 
 
 
 Resources:
