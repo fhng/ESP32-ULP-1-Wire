@@ -7,6 +7,15 @@ DS18B20: data line to GPIO 32, Ground to Ground, Power to Power.
 
 Testing, playing with ESP32 ULP for learning purpose. Below are the resources I used to code this. app_main() init ULP and sets it on a timer and it goes to sleep. ULP gets temperature from ds18b20, wakes up app_main() then halt. app_main() prints the output and go to sleep. Timer wakes ULP and the cycle repeats again. 
 
+## Subroutines
+
+- get_temp : Return a 2 bytes temperature data from device in R0.
+- rst_pulse : Set bus low for 500us, then high for 240 and read device presence.
+- read_byte : Read one byte from device by calling read_bit, return input in R2.
+- read_bit : Read one bit by pulling bus low for 2us and pull high for 15us then read device, return bit store in R0
+- send_byte : R2 stores out going byte, calls send_bit to send bit by bit.
+- send_bit : R2 stores the bit being sent, pulling bus low for 5us ( low bit: wait 80us then pull high, High bit: pull high)
+- delay_ms : delay for 750 millisecond
 
 ## In general, codes in ULP do this:
 
@@ -34,9 +43,9 @@ combine these two byte into temperature data
 
 ## --Update March 19 2018--
 
-Added **"read_rom_single_device"** subroutine - to get a DS18B20 64bit ROM-ID
+- Added **"read_rom_single_device"** subroutine - to get a DS18B20 64bit ROM-ID
 
-Added **"send_rom_id"** subroutine - So you can talk to multiple DS18B20 with their ROM-IDs.
+- Added **"send_rom_id"** subroutine - So you can talk to multiple DS18B20 with their ROM-IDs.
 
 I am using 4 to 6 DS18B20 devices. So I am manually reading each device with read_rom_single_device and copy down the ROM IDs and init them in my appMain() before calling ULP. ULP can loop through these ROM-IDs for multiple devices environment.   
 
