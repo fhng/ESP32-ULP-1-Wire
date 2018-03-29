@@ -47,28 +47,12 @@ temperatureC:
 temperatureF:
 	.long 0
 
-	.global first_run
-first_run:
-	.long 0
-
 
 	/* Code goes into .text section */
 	.text
 	.global entry
 entry:
-	/* BUGS? ULP seems to run 2x, so skipping the first time */
-	/* and code, below, removing ULP wakeup timer causes ULP to stop running */
-	/* Stop the wakeup timer so it does not restart ULP */
-        /* WRITE_RTC_FIELD(RTC_CNTL_STATE0_REG, RTC_CNTL_ULP_CP_SLP_TIMER_EN, 0) */
-	/* first one go to half, start at second run there is no stop becuase of WRITE_RTC.... */
-	/* Since not using WRITE_RTC... to stop waekup timer there is no need for this
-	move r1, first_run
-	ld r0, r1, 0
-	jumpr real_start, 1, ge
-	move r0, 1
-	st r0, r1, 0
-	halt
-	*/
+
 /* R1 is used for scratech register: So, don't use it if you are push/pop/psr/ret */
 /* R3 is used as stack pointer: DON'T USE */
 /* R0 is sometime used for JUMPR .... */
