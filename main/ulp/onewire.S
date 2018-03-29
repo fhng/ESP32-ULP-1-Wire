@@ -184,7 +184,7 @@ get_temp:
 	move r2, 0xCC
 	psr
 	jump send_byte
-	move r2, 0xBE
+	move r2, 0xBE 	// read scratchpad(9 bytes, last byte is CRC)
 	psr
 	jump send_byte
 
