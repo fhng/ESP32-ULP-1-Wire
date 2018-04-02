@@ -5,6 +5,7 @@ install and test run:
 
 1) git clone https://github.com/fhng/ESP32-ULP-1-Wire.git
 2) cd to project file and >make flash monitor
+3) Feel free to ask questions.
 
 
 ## ESP32 ULP 1-Wire example
