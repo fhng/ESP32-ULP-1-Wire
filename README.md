@@ -1,8 +1,14 @@
 ![Alt text](ds18b20.jpg?raw=true "DS18B20")
 ![Alt text](ds18b20_.jpg?raw=true "DS18B20")
 
+install and run:
+
+1) git clone 
+2) cd to project file and >make flash monitor
+
 
 ## ESP32 ULP 1-Wire example
+
 Using GIPO 32 (RTC_GOIO 9) for 1-wire. A pull-up 1.5kohm between 3.3v and GPIO 32 and a magnetic Temperature sensor DS18B20 waterproof 1m Cable at the end of GPIO.
 
 
