@@ -72,6 +72,7 @@ scratchpad_memory:	// Return 9 Bytes of data after an 0xBE command.
 	.global entry
 entry:
 
+/* Register general usage: */
 /* R1 is used for scratech register: So, don't use it if you are push/pop/psr/ret */
 /* R3 is used as stack pointer: DON'T USE */
 /* R0 is sometime used for JUMPR .... */
