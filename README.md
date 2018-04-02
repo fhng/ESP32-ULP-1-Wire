@@ -1,7 +1,7 @@
 ![Alt text](ds18b20.jpg?raw=true "DS18B20")
 ![Alt text](ds18b20_.jpg?raw=true "DS18B20")
 
-install and run:
+install and test run:
 
 1) git clone https://github.com/fhng/ESP32-ULP-1-Wire.git
 2) cd to project file and >make flash monitor
