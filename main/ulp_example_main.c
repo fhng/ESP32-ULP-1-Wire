@@ -42,9 +42,11 @@ void app_main()
 	temperatureC = ulp_temperatureC & UINT16_MAX;
 	temperatureF = ulp_temperatureF & UINT16_MAX;
 	printf("<<<<<< Result: %d >>>>>>\n",counter);
-	//printf("---- Extra_Hold --------- 0x%x\n", ulp_extra_hold & UINT16_MAX);
+	//printf("---- Extra_Hold --------- 0x%x\n", ulp_temperatureC & UINT16_MAX);
 	printf("----- Temperature in C ----- %.2f\n", temperatureC /16 );
 	printf("----- Temperature in F ----- %.2f\n", (temperatureF /16) *1.8 +32);
+	printf("----- CRC8 Scratchpad value ---- 0x%x\n", ulp_crc8_value & UINT16_MAX);
+	printf("----- CRC8 Checked result ---- 0x%x\n", ulp_crc8_check & UINT16_MAX);
 	//return;
     }
 
@@ -77,6 +79,7 @@ static void init_ulp_program()
     // ESP-IDF has an typo error on RTC_GPIO_MODE_INPUT_OUTUT, missing P, fixed
     // Open drain mode(1-wire/ I2C), should get it to INPUT_ONLY
     rtc_gpio_set_direction(one_wire_port, RTC_GPIO_MODE_INPUT_ONLY);
+
     // If set RTC_GPIO_MODE_INPUT_OUTPUT pulldown and pullup won't matter 
     // so, right now, using RTC_GPIO_MODE_INPUT_ONLY for button
     // rtc_gpio_set_direction(one_wire_port, RTC_GPIO_MODE_INPUT_OUTPUT);
