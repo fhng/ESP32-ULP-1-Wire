@@ -52,7 +52,7 @@ combine these two byte into temperature data
 
 ***********************************************************************************************************
 
-## --Update April 4 2018 --
+## --Update April 2 2018 --
 - Added CRC8-Maxium checking, file "ulp/cr8Maxim.S"
 
 Can check data error against RomID(8 bytes) and Scatchpad Memory (9 bytes) if you need.
