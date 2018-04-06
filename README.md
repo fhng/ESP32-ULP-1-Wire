@@ -57,7 +57,7 @@ combine these two byte into temperature data
 
 -- The implementation side of it(might help someone and its fun): It simply a Btree search. Find the discrepancy or conflicting bits on devices romID and remember it. Split and keeping going down the tree til the end and then return back to discrepancy point and search down again until the end.
 
-![Alt text](btree.jpg?raw=true "DS18B20")
+![Alt text](btree.png?raw=true "DS18B20")
 
 ## --Update April 2 2018 --
 - Added CRC8-Maxium checking, file "ulp/cr8Maxim.S"
