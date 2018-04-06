@@ -53,7 +53,7 @@ combine these two byte into temperature data
 ***********************************************************************************************************
 
 ## --Update April 6 2018 --
--- Added Search Rom subroutine - It look for the unique 64bit ROM identification for each device on the bus so it able to communicate with number of devices on the bus. Again with ULP 8K memory restriction, not all of these subroutines would fit. So select whats important to you and only use those thats needed. *I already tried to include all these subroutines and when I do MAKE it complains there isn't enough room and simply not allow to do so.
+-- Added Search Rom subroutine - It look for the unique 64bit ROM identification for each device on the bus thus its able to communicate with number of devices on the bus. Again with ULP 8K memory restriction, not all of these subroutines would fit. So select whats important to you and only use those thats needed. *I already tried to include all these subroutines and when I do MAKE it complains there isn't enough room and simply not allow to do so.
 
 . The implementation side of it(might help someone and its fun): It simply a Btree search. Find the discrepancy or conflicting bits on devices romID and remember it. Split and keeping going down the tree to the end and then return back to discrepancy point and search down again until the end.
 
