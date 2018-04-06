@@ -57,7 +57,7 @@ combine these two byte into temperature data
 
 . The implementation side of it(might help someone and its fun): It simply a Btree search. Find the discrepancy or conflicting bits on devices romID and remember it. Split and keeping going down the tree til the end and then return back to discrepancy point and search down again until the end.
 
-. After you send A command 0xF0 "Search Rom", each devices will respond by sending back its first bit. The result is the logical AND of all devices on the line. Then devies wil send another bit which is the complement of the first bit of their RomID. So, if there bits were: 00 = devices conflicting bits, 01 = All devcies have a 0 bit at this position, 10 = All devices have a 1 bit at this position, 11 = no devices.
+. On the device side: After you send A command 0xF0 "Search Rom", each devices will respond by sending back its first bit. The result is the logical AND of all devices on the line. Then devies wil send another bit which is the complement of the first bit of their RomID, again result is the logical AND of all. So, if there bits were: 00 = devices conflicting bits, 01 = All devcies have a 0 bit at this position, 10 = All devices have a 1 bit at this position, 11 = no devices.
 
 . exampe: 
 ![Alt text](btree.png?raw=true "DS18B20")
