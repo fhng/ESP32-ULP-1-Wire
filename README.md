@@ -55,11 +55,11 @@ combine these two byte into temperature data
 ## --Update April 6 2018 --
 -- Added Search Rom subroutine - It look for the unique 64bit ROM identification for each device on the bus thus its able to communicate with number of devices on the bus. Again with ULP 8K memory restriction, not all of these subroutines would fit. So select whats important to you and only use those thats needed. *I already tried to include all these subroutines and when I do MAKE it complains there isn't enough room and simply not allow to do so.
 
-. I tested it and only set it to return 2 romID since I only have two DS18B20. I am going to add 6 in total later on. So, for now it is only tested with two.
+. I tested it and only set it to return 2 romID since I only have two DS18B20. I am going to add 6 in total later on. So, for now it is only tested with two. When I have 6 DS18B20 I will probably run it once then hard code the six romIDs to ULP and not include this and some of the other subroutines because of the 8K limit. Or do this in the regluar cpu in C then pass it to ULP.
 
 . The implementation side of it(might help someone and its fun): It simply a Btree search. Find the discrepancy or conflicting bits on devices romID and remember it. Split and keeping going down the tree to the end and then return back to discrepancy point and search down again until the end.
 
-. On the device side: After you send A command 0xF0 "Search Rom", each devices will respond by sending back its first bit. The result is the logical AND of all devices on the line. Then devies wil send another bit which is the complement of the first bit of their RomID, again result is the logical AND of all. So, if there bits were: 00 = devices conflicting bits, 01 = All devcies have a 0 bit at this position, 10 = All devices have a 1 bit at this position, 11 = no devices.
+. On the device side: After you send A command 0xF0 "Search Rom", each devices will respond by sending back its first bit. The result is the logical AND of all devices on the line. Then devies wil send another bit which is the complement of the first bit of their RomID, again result is the logical AND of all. So, if there bits were: 00 = devices conflicting bits, 01 = All devcies have a 0 bit at this position, 10 = All devices have a 1 bit at this position, 11 = no devices. And then you send a bit "0" or "1" to select and deselect the devices. Repeat this process 64 times to get one 64 bits romID and repeat again to get next romID of another device and so on.
 
 . Below is btree trace on: ROM1 00110101, ROM2 10101010, ROM3 11110101, ROM4 00010001 (RomID is 64bits, this is just an shorten example)
 ![Alt text](btree.png?raw=true "DS18B20")
