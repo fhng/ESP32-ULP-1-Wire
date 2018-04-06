@@ -59,7 +59,7 @@ combine these two byte into temperature data
 
 . On the device side: After you send A command 0xF0 "Search Rom", each devices will respond by sending back its first bit. The result is the logical AND of all devices on the line. Then devies wil send another bit which is the complement of the first bit of their RomID, again result is the logical AND of all. So, if there bits were: 00 = devices conflicting bits, 01 = All devcies have a 0 bit at this position, 10 = All devices have a 1 bit at this position, 11 = no devices.
 
-. exampe: 
+. Below is btree trace on: ROM1 00110101, ROM2 10101010, ROM3 11110101, ROM4 00010001 (RomID is 64bits, this is just an shorten example)
 ![Alt text](btree.png?raw=true "DS18B20")
 
 ## --Update April 2 2018 --
