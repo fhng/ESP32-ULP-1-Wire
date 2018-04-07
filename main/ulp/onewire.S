@@ -165,7 +165,7 @@ read_rom_loop:
 rst_pulse:
 	/* set OUTPUT_W1TS for output */
 	GPIO_L
-	/* ULP running at 8mhz, 8mhz  = 8us per cycle, thats 0.125 cpu over 1us.  */
+	/* ULP running at 8mhz, 8mhz  = 1us per 8 cpu cycles, thats 0.125us per one cpu cycle.  */
 	/* So, 500us delay = 500/0.125 => 4,000 cpu cycles. */
 	/* wait 500 microsecond, 1000 ms = 1 millisecon */
 	GPIO_low
