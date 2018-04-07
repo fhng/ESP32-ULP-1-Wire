@@ -103,7 +103,7 @@ These two subroutines are commented out. Uncomment to use as you need.
 
 1)Used espresssif/esp-idf/system/ulp as a starting template.
 
-2)All the ds18b20 code is a direct port from feelfreelinux/ds18b20 https://github.com/feelfreelinux/ds18b20
+2)Some of the ds18b20 code is a direct port from feelfreelinux/ds18b20 https://github.com/feelfreelinux/ds18b20
 
 3)Also, stack.S and subrotines call are from tomtor/up-i2c https://github.com/tomtor/ulp-i2c
 
