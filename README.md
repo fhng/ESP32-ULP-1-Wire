@@ -56,7 +56,7 @@ combine these two byte into temperature data
 
 ## --Update April 6 2018 --
 
-/* **it here https://github.com/fhng/DS18B20-Search-RomIDs : Its too big to fit everything in ULP, so I separated it from main project. Both project is the same but added search_rom subroutine and some memory space for devices' romID.**
+\* **it here https://github.com/fhng/DS18B20-Search-RomIDs : Its too big to fit everything in ULP, so I separated it from main project. Both project is the same but added search_rom subroutine and some memory space for devices' romID.**
 
 -- Added Search Rom subroutine - It look for the unique 64bit ROM identification for each device on the bus thus its able to communicate with number of devices on the bus. Again with ULP 8K memory restriction, not all of these subroutines would fit. So select whats important to you and only use those thats needed. *I already tried to include all these subroutines and when I do MAKE it complains there isn't enough room and simply not allow to do so.
 
