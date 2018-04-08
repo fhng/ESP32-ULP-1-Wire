@@ -74,7 +74,7 @@ combine these two byte into temperature data
 
 Can check data error against RomID(8 bytes) and Scatchpad Memory (9 bytes) if you need.
 
-It is a simple loop XOR on Data with CRC8-Maxium polynomial (b10001100<-- reflected). Since size matters in ULP I decided to use loop instead of a LUT which it is faster(skipping the shifting of XOR 8bits). LUT uses at least 256 bytes more memory.
+It is a simple loop XOR on Data with CRC8-Maxium polynomial (b10001100<-- reflected). Since size matters in ULP I decided to use loop instead of a LUT which it is **a lolt faster** (skipping the shifting of XOR 8bits). LUT uses at least 256 bytes more memory.
 
 Since there is no XOR in ULP I created a macro for it. Xor = ( X or Y) + ( X and Y)
 
