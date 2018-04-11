@@ -124,45 +124,53 @@ Not ULP wakeup, initializing ULP
 Entering deep sleep
 
 <<<<<< Result: 1 >>>>>>
------ Temperature in C ----- 21.88
------ Temperature in F ----- 71.26
------ CRC8 Scratchpad value ---- 0x8c
------ CRC8 Checked result ---- 0x8c
+----- Temperature in C ----- 24.25
+----- Temperature in F ----- 75.65
+----- CRC8 Scratchpad value ---- 0x72
+----- CRC8 Checked result ---- 0x72
 Entering deep sleep
 
 <<<<<< Result: 2 >>>>>>
------ Temperature in C ----- 21.88
------ Temperature in F ----- 71.38
------ CRC8 Scratchpad value ---- 0x8d
------ CRC8 Checked result ---- 0x8d
+----- Temperature in C ----- 24.25
+----- Temperature in F ----- 75.76
+----- CRC8 Scratchpad value ---- 0x5f
+----- CRC8 Checked result ---- 0x5f
 Entering deep sleep
 
 <<<<<< Result: 3 >>>>>>
------ Temperature in C ----- 21.81
------ Temperature in F ----- 71.38
------ CRC8 Scratchpad value ---- 0x8d
------ CRC8 Checked result ---- 0x8d
+----- Temperature in C ----- 24.25
+----- Temperature in F ----- 75.76
+----- CRC8 Scratchpad value ---- 0x5f
+----- CRC8 Checked result ---- 0x5f
 Entering deep sleep
 
 <<<<<< Result: 4 >>>>>>
------ Temperature in C ----- 21.81
------ Temperature in F ----- 71.38
------ CRC8 Scratchpad value ---- 0x8d
------ CRC8 Checked result ---- 0x8d
+----- Temperature in C ----- 24.25
+----- Temperature in F ----- 75.65
+----- CRC8 Scratchpad value ---- 0x72
+----- CRC8 Checked result ---- 0x72
 Entering deep sleep
 
 <<<<<< Result: 5 >>>>>>
------ Temperature in C ----- 21.88
------ Temperature in F ----- 71.38
------ CRC8 Scratchpad value ---- 0x8d
------ CRC8 Checked result ---- 0x8d
+----- Temperature in C ----- 24.25
+----- Temperature in F ----- 75.65
+----- CRC8 Scratchpad value ---- 0x72
+----- CRC8 Checked result ---- 0x72
 Entering deep sleep
 
 <<<<<< Result: 6 >>>>>>
------ Temperature in C ----- 21.88
------ Temperature in F ----- 71.38
------ CRC8 Scratchpad value ---- 0x8d
------ CRC8 Checked result ---- 0x8d
+----- Temperature in C ----- 24.31
+----- Temperature in F ----- 75.65
+----- CRC8 Scratchpad value ---- 0x72
+----- CRC8 Checked result ---- 0x72
 Entering deep sleep
+
+<<<<<< Result: 7 >>>>>>
+----- Temperature in C ----- 24.25
+----- Temperature in F ----- 75.65
+----- CRC8 Scratchpad value ---- 0x72
+----- CRC8 Checked result ---- 0x72
+Entering deep sleep
+
 ```
 
