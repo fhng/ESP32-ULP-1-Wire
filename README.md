@@ -120,34 +120,49 @@ Note:
 
 Note: GPIO15 is connected to GND to disable ROM bootloader output.
 ```
-Not ULP wakeup, inititializing ULP
+Not ULP wakeup, initializing ULP
 Entering deep sleep
 
 <<<<<< Result: 1 >>>>>>
------ Temperature in C ----- 24.44
------ Temperature in F ----- 75.99
-
+----- Temperature in C ----- 21.88
+----- Temperature in F ----- 71.26
+----- CRC8 Scratchpad value ---- 0x8c
+----- CRC8 Checked result ---- 0x8c
 Entering deep sleep
 
 <<<<<< Result: 2 >>>>>>
------ Temperature in C ----- 24.44
------ Temperature in F ----- 75.99
-
+----- Temperature in C ----- 21.88
+----- Temperature in F ----- 71.38
+----- CRC8 Scratchpad value ---- 0x8d
+----- CRC8 Checked result ---- 0x8d
 Entering deep sleep
 
 <<<<<< Result: 3 >>>>>>
------ Temperature in C ----- 24.44
------ Temperature in F ----- 75.99
+----- Temperature in C ----- 21.81
+----- Temperature in F ----- 71.38
+----- CRC8 Scratchpad value ---- 0x8d
+----- CRC8 Checked result ---- 0x8d
 Entering deep sleep
 
 <<<<<< Result: 4 >>>>>>
------ Temperature in C ----- 24.44
------ Temperature in F ----- 75.99
+----- Temperature in C ----- 21.81
+----- Temperature in F ----- 71.38
+----- CRC8 Scratchpad value ---- 0x8d
+----- CRC8 Checked result ---- 0x8d
 Entering deep sleep
 
 <<<<<< Result: 5 >>>>>>
------ Temperature in C ----- 24.44
------ Temperature in F ----- 75.99
-
+----- Temperature in C ----- 21.88
+----- Temperature in F ----- 71.38
+----- CRC8 Scratchpad value ---- 0x8d
+----- CRC8 Checked result ---- 0x8d
 Entering deep sleep
+
+<<<<<< Result: 6 >>>>>>
+----- Temperature in C ----- 21.88
+----- Temperature in F ----- 71.38
+----- CRC8 Scratchpad value ---- 0x8d
+----- CRC8 Checked result ---- 0x8d
+Entering deep sleep
+```
 
