@@ -76,7 +76,7 @@ Can check data error against RomID(8 bytes) and Scatchpad Memory (9 bytes) if yo
 
 It is a simple loop XOR on Data with CRC8-Maxium polynomial (b10001100<-- reflected). Since memory size matters in ULP I decided to use loop instead of a LUT which is **a lot faster** (skipping the shifting of 8bits and no calculation). LUT uses at least 256 bytes more memory.
 
-Since there is no XOR in ULP I created a macro for it. Xor = (X or Y) + (X and Y)
+Since there is no XOR in ULP I created a macro for it. Xor = (X or Y) - (X and Y)
 
 
 ## --Update March 19 2018--
