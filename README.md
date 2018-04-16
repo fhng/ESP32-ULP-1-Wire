@@ -113,7 +113,7 @@ Tomtor's ulp-i2c code is very helpful for understsanding ULP.
 Note:
 
 
-*the comments in the code are meant for myself at the time of writing them. If they are confusing to you feel free to ask question.
+* Feel free to ask questions because the comments in the code are meant for myself at the time of writing them.
 
 
 ## Example output
