@@ -1,7 +1,7 @@
 /*
  * CRC 8 Maxium for 1-Wire, Polynomial is X^8+X^5+X^4+X^0 (0b1 0011 0001)
  * Reflected INPUT and OUTPUT: Thus using reflected Polynomial and Shifting the CRC Shift register to the right.
- * Reflected Polynomial: 0b1000 11100 from 0b0011 0001
+ * Reflected Polynomial: 0b1000 1100 from 0b0011 0001
  */
 
 #include "stack.S"
