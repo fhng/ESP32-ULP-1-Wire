@@ -26,7 +26,7 @@
 
 	.bss
 
-        .set polynomial, 0b00110001
+        // .set polynomial, 0b00110001
         .set polynomial_reflected, 0b10001100
 
 	.data
