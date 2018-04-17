@@ -7,7 +7,7 @@
 #include "stack.S"
 
 /*
-// Since there is no build-in XOR defining my own.
+// Defining my own XOR, since there is no build-in XOR.
 // xor = (X or Y) - (X and Y)
 // or r0, r2, r3
 // and r1, r2, r3
