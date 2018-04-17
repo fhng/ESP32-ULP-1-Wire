@@ -29,6 +29,7 @@
         // .set polynomial, 0b00110001
         .set polynomial_reflected, 0b10001100
 
+/*
 	.data
 	.global romid
 romid:
@@ -40,7 +41,7 @@ romid:
         .long 0x00              // bit 6
         .long 0x00              // bit 7
         .long 0x1E              // bit 8: CRC8-Maxim value
-
+*/
 
 	.text
 
