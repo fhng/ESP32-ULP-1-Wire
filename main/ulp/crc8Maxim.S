@@ -45,8 +45,8 @@ romid:
 	.text
 
 // Loop through a byte or a series of bytes and returns a CRC value.
-// Will return a CRC8-Maxim value if array of bytes doesn't have the CRC value.
-// If array of byte has a CRC value the result will be zero (if no CRC ERROR).
+// Will return a CRC8-Maxim value if array of bytes doesn't include the CRC value.
+// If array of bytes has a CRC value the result will be zero (if no CRC ERROR).
 
 // R2: always hold the CRC Shift register.
 // R0: Tracking the number of Bytes.
