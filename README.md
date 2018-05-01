@@ -89,7 +89,7 @@ I am using 4 to 6 DS18B20 devices. So I am manually reading each device with rea
 
 *RTC_SLOW_MEMORY is 8kb in size, thats the reason I don't do a search for ROM-IDs for multiple devices. ULP code is getting too big as is. Beside I want to have as much memory as possible to store temperature datas to save battery life. 
 
-*Probabaly will add search for ROM-IDs function in C, not in ULP. It is getting big and a bit messy. I want to keep this as a ULP sample code.
+*Probably will add search for ROM-IDs in ULP. It will get getting big and a bit messy though. I do want to keep this as a ULP sample code.
 
 These two subroutines are commented out. Uncomment to use as you need.
 
