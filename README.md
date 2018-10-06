@@ -56,11 +56,11 @@ combine these two byte into temperature data
 
 ## --Update April 6 2018 --
 
-\** **its here https://github.com/fhng/ESP32-ULP-DS18B20-SearchRomIDs : Its too big to fit everything in ULP, so I separated it from main project. Both project is the same but added search_rom subroutine and some memory space for devices' romID.**
+\** **its here https://github.com/fhng/ESP32-ULP-DS18B20-SearchRomIDs : Its too big to fit everything in ULP, so I separated it from main project. Both projects are the same but added search_rom subroutine and some memory space for devices' romID.**
 
 -- Added Search Rom subroutine - It look for the unique 64bit ROM identification for each devices on the bus thus its able to communicate with number of devices on the bus. Again with ULP 8K memory restriction, not all of these subroutines would fit. So select whats important to you and only use those thats needed. *I already tried to include all these subroutines and when I do MAKE it complains there isn't enough room and simply not allow to do so.
 
-. I tested it with setting it to return only 2 romIDs since I only have two DS18B20. I am going to add 6, in total, later on. So, for now it is only tested with two. When I have 6 DS18B20 I will probably run it once then hard code the six romIDs to ULP and not include this and some of the other subroutines because of the 8K limit. Or do this in the regluar cpu in C then pass it to ULP.
+. I tested it with setting it to return only 2 romIDs since I only have two DS18B20. I am going to add 6, in total, later on. So, for now it is only tested with two. When I have 6 DS18B20 I will probably run it once then hard code the six romIDs to ULP and not include this and some of the other subroutines because of the 8K limit. Or do ROMs searching in regluar cpu in C then pass it to ULP.
 
 . The implementation side of it(might help someone and its fun): It simply a Btree search. Find the location of discrepancy or conflicting bits on devices romID and remember it. Split and keeping going down the tree to the end then return back to discrepancy point and search down on this branch until the end. If you see a discrepancy just split and keep going to the end. Repeat and Repeat until no more devices.
 
